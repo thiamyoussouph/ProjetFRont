@@ -8,16 +8,24 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {ReactiveFormsModule} from "@angular/forms";
-import { FormulaireComponent } from './formulaire/formulaire.component';
-import { ListeVehiculesComponent } from './liste-vehicules/liste-vehicules.component';
+import { FormulaireComponent } from './Components/formulaire/formulaire.component';
+import { ListeVehiculesComponent } from './Components/liste-vehicules/liste-vehicules.component';
 import {AppRoutingModule} from "./app-routing.module";
 import {HttpClientModule} from "@angular/common/http";
+import { DetatailVehiculeComponent } from './Components/detatail-vehicule/detatail-vehicule.component';
+import { ListeModeleComponent } from './Components/liste-modele/liste-modele.component';
+import { ListeMarqueComponent } from './Components/liste-marque/liste-marque.component';
+import { ListTypesvehiculesComponent } from './Components/list-typesvehicules/list-typesvehicules.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormulaireComponent,
-    ListeVehiculesComponent
+    ListeVehiculesComponent,
+    DetatailVehiculeComponent,
+    ListeModeleComponent,
+    ListeMarqueComponent,
+    ListTypesvehiculesComponent
   ],
   imports: [
     BrowserModule,
