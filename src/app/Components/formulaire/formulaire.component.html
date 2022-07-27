@@ -1,0 +1,51 @@
+<form [formGroup]="formulaire" (ngSubmit)="SaveVehicule()">
+  <fieldset >
+    <legend>Disabled fieldset example</legend>
+    <div class="mb-3">
+      <label for="disabledTextInput" class="form-label">matricule</label>
+      <input type="text" id="disabledTextInput" class="form-control" formControlName="matricule" placeholder="expl A33-BT-72">
+    </div>
+
+    <div class="mb-3">
+      <label for="disabledSelect" class="form-label">modele</label>
+      <select id="disabledSelect" class="form-select"formControlName="modele">
+        <option   *ngFor="let modele of recupermodele " [ngValue]="modele">{{modele.libellet}}</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="disabledTextInput" class="form-label">Nombre place</label>
+      <input type="number" id="disabledTextInputess" class="form-control" formControlName="nombrePlace" placeholder="expl 5" min="4" max="16">
+    </div>
+    <div class="mb-3">
+      <label for="disabledSelec" class="form-label">etats</label>
+      <select id="disabledSelec" class="form-select" formControlNamename="etats">
+        <option ></option>
+        <option >neuve</option>
+        <option >pasNeuve</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="disabledSele" class="form-label">status</label>
+      <select id="disabledSele" class="form-select" formControlName="status">
+        <option>Actif</option>
+        <option>Innactif</option>
+        <option>PAsEnBOnneETats</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="disabledTextInputs" class="form-label">date chat</label>
+      <input type="date" id="disabledTextInputs" class="form-control" formControlName="dateAchat" placeholder="Disabled input">
+    </div>
+    <div class="mb-3">
+      <label for="disabledTextInputes" class="form-label">date sotie</label>
+      <input type="date" id="disabledTextInputes" class="form-control" formControlName="dateSOrtie" placeholder="Disabled input">
+    </div>
+    <div class="mb-3">
+      <label for="disabledTextInpu" class="form-label">date mis en marche</label>
+      <input type="date" id="disabledTextInpu" class="form-control" formControlName="dateMisEnMarche" placeholder="Disabled input">
+    </div>
+
+    <button type="submit" class="btn btn-primary">ajouter</button>
+  </fieldset>
+</form>

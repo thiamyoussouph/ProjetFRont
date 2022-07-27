@@ -1,0 +1,22 @@
+ .ajout{
+  background-color: #25612F;
+  margin-left: 88%;
+  margin-top: 1%;
+  margin-bottom: 2%;
+   color: white;
+}
+a i{
+  display: inline-block;
+
+}
+ .pensile{
+   margin: 2%;
+
+ }
+.eyes{
+  margin: 2%;
+  font-size: 20px;
+}
+.view{
+  margin: 2%;
+}

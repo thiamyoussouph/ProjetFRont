@@ -1,0 +1,11 @@
+
+<div class="container">
+  <div class="card"*ngFor="let s of Modele |async">
+    <div class="card-header"></div>
+    <h2>Matricule:{{s.libellet}}</h2>
+   <!-- <h2>modele:{{s.marque.libellet}}</h2>-->
+    <h2>modele:{{s.typesVehicules.libellet}}</h2>
+    </div>
+  </div>
+
+

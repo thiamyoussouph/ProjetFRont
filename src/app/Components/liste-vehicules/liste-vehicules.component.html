@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+</head>
+<body>
+<a href="forme" class="btn btn-sucess ajout">nouveau</a>
+<div class="container mt-2">
+  <ng-container *ngIf="Vehicule |async as listvehicules ;else failureOrLading">
+    <table class="table table-success table-striped">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">matricule</th>
+        <th scope="col">nombre de places</th>
+        <th scope="col">Modele</th>
+        <th scope="col">types voiture</th>
+        <th scope="col">action</th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let v of Vehicule |async">
+        <th >{{v.id}}</th>
+        <td>{{v.matricule}}</td>
+        <td>{{v.nombrePlace}}</td>
+        <td>{{v.modele.libellet}}</td>
+        <td>{{v.modele.typesVehicules.libellet}}</td>
+        <td>
+          <a  class="" href="modifier/{{v.id}}"><i class="bi bi-pencil  text-success pensile" width="5" height="5"></i></a>
+          <a class="" href="detail/{{v.id}}"><i class="bi bi-eye  text-success eyes "></i></a>
+          <a (click)="delecteVehicules(v)" class="" href="suprimer/{{v.id}}"><i class="bi bi-trash3-fill  text-danger view"></i></a>
+        </td>
+      </tr>
+
+      </tbody>
+
+    </table>
+
+  </ng-container>
+  <ng-template #failureOrLading>
+    <ng-container *ngIf="errorMessage; else loading">
+      {{errorMessage}}
+    </ng-container>
+
+  </ng-template>
+  <ng-template #loading>
+    loading ......
+  </ng-template>
+
+</div>
+</body>
+</html>
