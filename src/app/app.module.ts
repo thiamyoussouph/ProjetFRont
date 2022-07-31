@@ -16,6 +16,7 @@ import { DetatailVehiculeComponent } from './Components/detatail-vehicule/detata
 import { ListeModeleComponent } from './Components/liste-modele/liste-modele.component';
 import { ListeMarqueComponent } from './Components/liste-marque/liste-marque.component';
 import { ListTypesvehiculesComponent } from './Components/list-typesvehicules/list-typesvehicules.component';
+import { UpdateVehuculeComponent } from './Components/update-vehucule/update-vehucule.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ListTypesvehiculesComponent } from './Components/list-typesvehicules/li
     DetatailVehiculeComponent,
     ListeModeleComponent,
     ListeMarqueComponent,
-    ListTypesvehiculesComponent
+    ListTypesvehiculesComponent,
+    UpdateVehuculeComponent
   ],
   imports: [
     BrowserModule,

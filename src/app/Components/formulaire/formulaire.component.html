@@ -1,51 +1,74 @@
-<form [formGroup]="formulaire" (ngSubmit)="SaveVehicule()">
-  <fieldset >
-    <legend>Disabled fieldset example</legend>
-    <div class="mb-3">
-      <label for="disabledTextInput" class="form-label">matricule</label>
-      <input type="text" id="disabledTextInput" class="form-control" formControlName="matricule" placeholder="expl A33-BT-72">
-    </div>
+<div class="container-fluid">
 
-    <div class="mb-3">
-      <label for="disabledSelect" class="form-label">modele</label>
-      <select id="disabledSelect" class="form-select"formControlName="modele">
-        <option   *ngFor="let modele of recupermodele " [ngValue]="modele">{{modele.libellet}}</option>
-      </select>
-    </div>
+  <form [formGroup]="formulaire" (ngSubmit)="SaveVehicule()" class="row">
+    <fieldset >
+      <div class="col-4 formulaireajout">
 
-    <div class="mb-3">
-      <label for="disabledTextInput" class="form-label">Nombre place</label>
-      <input type="number" id="disabledTextInputess" class="form-control" formControlName="nombrePlace" placeholder="expl 5" min="4" max="16">
-    </div>
-    <div class="mb-3">
-      <label for="disabledSelec" class="form-label">etats</label>
-      <select id="disabledSelec" class="form-select" formControlNamename="etats">
-        <option ></option>
-        <option >neuve</option>
-        <option >pasNeuve</option>
-      </select>
-    </div>
-    <div class="mb-3">
-      <label for="disabledSele" class="form-label">status</label>
-      <select id="disabledSele" class="form-select" formControlName="status">
-        <option>Actif</option>
-        <option>Innactif</option>
-        <option>PAsEnBOnneETats</option>
-      </select>
-    </div>
-    <div class="mb-3">
-      <label for="disabledTextInputs" class="form-label">date chat</label>
-      <input type="date" id="disabledTextInputs" class="form-control" formControlName="dateAchat" placeholder="Disabled input">
-    </div>
-    <div class="mb-3">
-      <label for="disabledTextInputes" class="form-label">date sotie</label>
-      <input type="date" id="disabledTextInputes" class="form-control" formControlName="dateSOrtie" placeholder="Disabled input">
-    </div>
-    <div class="mb-3">
-      <label for="disabledTextInpu" class="form-label">date mis en marche</label>
-      <input type="date" id="disabledTextInpu" class="form-control" formControlName="dateMisEnMarche" placeholder="Disabled input">
-    </div>
+        <legend>formulaire d ajout</legend>
 
-    <button type="submit" class="btn btn-primary">ajouter</button>
-  </fieldset>
-</form>
+        <div class="mb-3">
+          <label for="disabledTextInput" class="form-label">matricule</label>
+          <input type="text" id="disabledTextInput" class="form-control" formControlName="matricule" placeholder="expl A33-BT-72">
+        </div>
+        <div class="mb-3">
+          <label for="disabledSelect" class="form-label">marque</label>
+          <select id="disabledSelects" class="form-select"(change)="loadModele()" formControlName="marque">
+            <option   *ngFor="let marque of recupermarque " value="{{marque.id}}">{{marque.libellet}}</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="disabledSelect" class="form-label">modele</label>
+          <select id="disabledSelect" class="form-select"formControlName="modele">
+            <option   *ngFor="let modeles of modeles " [ngValue]="modeles">{{modeles.libellet}}</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="disabledSelect" class="form-label">types</label>
+          <select id="disabledSelectss" class="form-select"formControlName="typesvehicule">
+            <option   *ngFor="let types of recuperrertypes"value="{{types.id}}">{{types.libellet}}</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="disabledTextInput" class="form-label">Nombre place</label>
+          <input type="number" id="disabledTextInputess" class="form-control" formControlName="nombrePlace" placeholder="expl 5" min="4" max="16">
+        </div>
+
+      </div>
+      <div class="col-4 formulaireajout">
+        <div class="mb-3">
+          <label for="disabledSelec" class="form-label">etats</label>
+          <select id="disabledSelec" class="form-select" formControlNamename="etats">
+            <option ></option>
+            <option value="neuve">neuve</option>
+            <option value="pasNeuve">pasNeuve</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="disabledSele" class="form-label">status</label>
+          <select id="disabledSele" class="form-select" formControlName="status">
+            <option value="pasNeuve">Actif</option>
+            <option value="Innactif">Innactif</option>
+            <option value="PAsEnBOnneETats">PAsEnBOnneETats</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="disabledTextInputs" class="form-label">date chat</label>
+          <input type="date" id="disabledTextInputs" class="form-control" formControlName="dateAchat" placeholder="Disabled input">
+        </div>
+        <div class="mb-3">
+          <label for="disabledTextInputes" class="form-label">date sotie</label>
+          <input type="date" id="disabledTextInputes" class="form-control" formControlName="dateSOrtie" placeholder="Disabled input">
+        </div>
+        <div class="mb-3">
+          <label for="disabledTextInpu" class="form-label">date mis en marche</label>
+          <input type="date" id="disabledTextInpu" class="form-control" formControlName="dateMisEnMarche" placeholder="Disabled input">
+        </div>
+      </div>
+      <div class="col-4"><button type="submit" class="btn btn-primary">ajouter</button></div>
+
+    </fieldset>
+  </form>
+
+</div>

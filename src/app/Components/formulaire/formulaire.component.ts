@@ -8,6 +8,8 @@ import {Marque} from "../../Modele/Marque.model";
 import {FormBuilder, FormGroup, Validator, Validators} from "@angular/forms";
 import {Vehicules} from "../../Modele/Vehicule.model";
 import {VehiculesService} from "../../services/vehicules.service";
+import {Routes} from "@angular/router";
+import {Typesvoiture} from "../../Modele/TypesVoiture.model";
 
 
 @Component({
@@ -20,11 +22,13 @@ export class FormulaireComponent implements OnInit {
   modeles!:Array<Modele>
   recupermodele!:Array<Modele>
   formulaire!: FormGroup
-  constructor(private marqueServiceService:MarqueServiceService, private form:FormBuilder,private  Vehiculeservice:VehiculesService,private modeleService :ModeleService ) { }
+  recuperrertypes!:Array<Typesvoiture>
+  constructor(private marqueServiceService:MarqueServiceService, private form:FormBuilder,private  Vehiculeservice:VehiculesService,private modeleService :ModeleService,private typesvehiculeServiceService:TypesvehiculeServiceService ) { }
 
   ngOnInit(): void {
     this.getModele()
-    //this.getMarqueForme()
+    this.getMarqueForme()
+    this.loadtypes()
     this.formulaire = this.form.group({
       matricule :this.form.control(null,[Validators.required,Validators.minLength(6)]),
       nombrePlace :this.form.control(null,[Validators.required,Validators.minLength(6)]),
@@ -34,6 +38,9 @@ export class FormulaireComponent implements OnInit {
       dateSOrtie:this.form.control(null,[Validators.required]),
       dateMisEnMarche:this.form.control(null,[Validators.required]),
       etats:this.form.control(null,[Validators.required]),
+      marque:this.form.control(null,[Validators.required]),
+      typesvehicule:this.form.control(null,[Validators.required])
+
 
 
     })
@@ -46,25 +53,29 @@ export class FormulaireComponent implements OnInit {
       }
     })
   }
- /*public getMarqueForme(){
+ public getMarqueForme(){
     this.marqueServiceService.getMarque().subscribe({
       next:(data)=>{
         this.recupermarque=data;
         console.log(this.recupermarque)
       }
     })
- }*/
+ }
 
- /*public loadModele() {
+ public loadModele() {
     let id:number = this.formulaire.value.marque
     this.marqueServiceService.getMarqueById(id).subscribe({
       next:(data)=>{
         this.modeles=data.modeles
       }
     })
-  }*/
+  }
   loadtypes(){
-
+ this.typesvehiculeServiceService.getTypeheicule().subscribe({
+   next:(data)=>{
+     this.recuperrertypes=data
+   }
+ })
   }
 
   SaveVehicule() {
@@ -75,8 +86,20 @@ export class FormulaireComponent implements OnInit {
       },error:err=>{
         alert("erreur");
     }
+
     })
 
+  }
+  update(){
+    let vehicule:Vehicules=this.formulaire.value;
+    this.Vehiculeservice.savevehicules(this.formulaire.value).subscribe({
+      next:data=>{
+        alert("enregistrer")
+      },error:err=>{
+        alert("erreur");
+      }
+
+    })
   }
 
 }

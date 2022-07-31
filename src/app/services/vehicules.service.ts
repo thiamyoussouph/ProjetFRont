@@ -23,4 +23,11 @@ export class VehiculesService {
     return this.http.delete("http://localhost:8080/suprimer/"+id)
 
   }
+
+  editevehicule(id: number) {
+    return this.http.get("http://localhost:8080/editer/"+id)
+  }
+  update(id: number, vehicule:Vehicules){
+    return this.http.put("http://localhost:8080/updateVehicule/"+id,vehicule)
+  }
 }
